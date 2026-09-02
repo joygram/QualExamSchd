@@ -1,0 +1,55 @@
+name: refresh
+
+on:
+  schedule:
+    - cron: '0 20 * * 0'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 시험일정 받기
+        env:
+          DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
+        run: node fetch.mjs
+
+      - name: 바뀌었으면 커밋
+        run: |
+          if git diff --quiet -- data; then
+            echo "변화 없음."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data
+          git commit -m 'chore: 시험일정 갱신'
+          git push
+
+      - name: 공개 페이지 만들기
+        run: node site.mjs
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - uses: actions/deploy-pages@v4
