@@ -29,7 +29,13 @@ jobs:
       - name: 시험일정 받기
         env:
           DATA_GO_KR_KEY: ${{ secrets.DATA_GO_KR_KEY }}
-        run: node fetch.mjs
+        run: |
+          if [ -z "$DATA_GO_KR_KEY" ]; then
+            echo "DATA_GO_KR_KEY 시크릿이 없다. 커밋된 일정으로 페이지만 굽는다."
+            echo "Settings > Secrets and variables > Actions 에 넣으면 갱신된다."
+            exit 0
+          fi
+          node fetch.mjs
 
       - name: 바뀌었으면 커밋
         run: |
@@ -47,6 +53,8 @@ jobs:
         run: node site.mjs
 
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
