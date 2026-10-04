@@ -1,0 +1,52 @@
+{
+  "jmCd": "9511",
+  "name": "직업상담사 2급",
+  "fetched": "2026-09-02T07:16:31.192Z",
+  "found": [
+    {
+      "year": 2026,
+      "round": "1",
+      "description": "국가기술자격 기사 (2026년도 제1회)",
+      "writtenApplyStart": "2026-01-12",
+      "writtenApplyEnd": "2026-01-25",
+      "writtenStart": "2026-01-30",
+      "writtenEnd": "2026-03-03",
+      "writtenPass": "2026-03-11",
+      "practicalApplyStart": "2026-03-23",
+      "practicalApplyEnd": "2026-04-13",
+      "practicalStart": "2026-04-18",
+      "practicalEnd": "2026-05-06",
+      "practicalPass": "2026-06-05"
+    },
+    {
+      "year": 2026,
+      "round": "2",
+      "description": "국가기술자격 기사 (2026년도 제2회)",
+      "writtenApplyStart": "2026-04-20",
+      "writtenApplyEnd": "2026-05-04",
+      "writtenStart": "2026-05-09",
+      "writtenEnd": "2026-05-29",
+      "writtenPass": "2026-06-10",
+      "practicalApplyStart": "2026-06-22",
+      "practicalApplyEnd": "2026-07-13",
+      "practicalStart": "2026-07-18",
+      "practicalEnd": "2026-08-05",
+      "practicalPass": "2026-09-04"
+    },
+    {
+      "year": 2026,
+      "round": "3",
+      "description": "국가기술자격 기사 (2026년도 제3회)",
+      "writtenApplyStart": "2026-07-20",
+      "writtenApplyEnd": "2026-08-02",
+      "writtenStart": "2026-08-07",
+      "writtenEnd": "2026-09-01",
+      "writtenPass": "2026-09-09",
+      "practicalApplyStart": "2026-09-21",
+      "practicalApplyEnd": "2026-10-19",
+      "practicalStart": "2026-10-24",
+      "practicalEnd": "2026-11-13",
+      "practicalPass": "2026-12-11"
+    }
+  ]
+}
